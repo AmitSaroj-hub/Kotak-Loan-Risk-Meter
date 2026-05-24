@@ -1,5 +1,3 @@
-SELECT * FROM Loan_Risk;
-
 -- 1. The Business Question: What is our absolute credit risk across different traditional tiers?
 SELECT
 CASE
