@@ -22,7 +22,7 @@ By analyzing historical borrower trends, digital transaction footprints, and pas
 All core calculated logic engineered to handle data transformations and risk metrics across the portfolio:
 
 ---
-
+```dax
 ### 1. Risk Metric Calculation (Gross NPA Rate)
 Gross_NPA_Rate = 
 DIVIDE(
