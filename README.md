@@ -55,8 +55,9 @@ Engineered 6 distinct aggregation metrics to power summary cards and responsive 
 - **`Total_Capital_Lost`**: Quantifies total financial defaults in INR.
 
 ### 4. Technical Implementation (Calculated Columns DAX)
-```dax
+
 1. Behavioral Risk Segmentation (CIBIL Brackets):
+```dax
 CIBIL_Bracket = 
 IF(
     'Kotak_Loans_Dataset'[CIBIL_Score] >= 750, "Excellent (750-900)",
