@@ -1,4 +1,4 @@
-# Project : [📂](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Kotak_Loan_Risk_Dashboard.pbix) Kotak Mahindra Bank Credit Risk Intelligence Dashboard.
+# Project : [📂](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Kotak%20Loan%20Risk%20Meter%20BI.pbix) Kotak Mahindra Bank Credit Risk Intelligence Dashboard.
 **Click On Folder Icon To Open Project File.**
 
 ## 🎯 Project Objective
