@@ -34,18 +34,29 @@ This project showcases a dynamic credit risk performance dashboard built using P
 
 ## 🛠️ Project Process
 
-### 1. Data Import & Transformation
-- Loaded raw fintech banking data into Power BI Desktop.
+### 1. Data Extraction:
+First of all i would like to clarify that this data is a complete sample/mock data as i generated it by python,
+so i am not using any Kotak Mahindra Bank's real data and have no intentions to defame their name by this data.
+I asked gemini to write me a python code for generating the data.
+
+### 2. SQL Exploratory Data Analysis (EDA)
+Before building the dashboard in Power BI, I used SQL to explore the raw database and understand borrower behavior:
+- **Finding Risk Patterns:** Queried historical data to see which borrower groups had the highest default rates.
+- **Testing Logic:** Used SQL `CASE WHEN` statements to sketch out credit brackets (like CIBIL groupings) before writing any DAX.
+- **Data Cleanup Check:** Checked for missing values and ensured all transaction amounts and customer records were accurate.
+
+### 3. Power BI Data Import & Transformation
+- Connected Power BI Desktop to the prepared dataset.
 - Handled structural type changes for transaction values and customer IDs.
 
-### 2. Data Engineering: Calculated Columns
+### 4. Data Engineering: Calculated Columns
 Derived 4 analytical columns to slice, group, and segment risk behaviors row-by-row:
 - **`CIBIL_Bracket`**: Groups scores into operational risk categories (Excellent, Good, Fair, Poor).
 - **`Balance_Health_Status`**: Flags liquid cash runways dipping below 25% of declared income.
 - **`Salary_Segment`**: Stratifies applicants into economic tiers (Tier 1 High, Tier 2 Middle, Tier 3 Mass Market).
 - **`UPI_Activity_Tier`**: Measures digital transaction intensity to assess active user engagement.
 
-### 3. Data Engineering: Dynamic Measures
+### 5. Data Engineering: Dynamic Measures
 Engineered 6 distinct aggregation metrics to power summary cards and responsive visuals:
 - **`Total_Applicants_Count`**: Tracks total underwriting applications.
 - **`Total_Portfolio_Volume`**: Evaluates total capital deployed in loans.
@@ -54,7 +65,7 @@ Engineered 6 distinct aggregation metrics to power summary cards and responsive 
 - **`Gross_NPA_Rate`**: Calculates the core portfolio risk percentage.
 - **`Total_Capital_Lost`**: Quantifies total financial defaults in INR.
 
-### 4. Technical Implementation (Calculated Columns DAX)
+### 6. Technical Implementation (Calculated Columns DAX)
 
 1. Behavioral Risk Segmentation (CIBIL Brackets):
 ```dax
@@ -102,7 +113,7 @@ IF(
 )
 ```
 
-### 5. Technical Implementation (Dynamic Measures DAX)
+### 7. Technical Implementation (Dynamic Measures DAX)
 ```dax
 1. Total_Applicants_Count = COUNT(Kotak_Loans_Dataset[Customer_ID])
 ```
