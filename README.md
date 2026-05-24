@@ -1,5 +1,5 @@
 # Kotak Mahindra Bank: Credit Risk & Loan Portfolio Analytics
-![Kotak Loan Risk Dashboard]([dashboard_screenshot.jpg](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Kotak%20Dashboard%20Screenshot.png))
+![Kotak Loan Risk Dashboard](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Kotak%20Dashboard%20Screenshot.png))
 
 ---
 
