@@ -1,5 +1,6 @@
 # Kotak Mahindra Bank: Credit Risk & Loan Portfolio Analytics
-![Kotak Loan Risk Dashboard](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Kotak%20Dashboard%20Screenshot.png))
+
+[![Kotak Loan Risk Dashboard](https://raw.githubusercontent.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/main/Kotak%20Dashboard%20Screenshot.png)](https://raw.githubusercontent.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/main/Kotak%20Dashboard%20Screenshot.png)
 
 ---
 
@@ -100,19 +101,3 @@ CALCULATE(
     SUM(Kotak_Loans_Dataset[Loan_Amount_INR]),
     Kotak_Loans_Dataset[Default_Status] = 1
 )
-
----
-
-## 🔍 Key Business Insights Uncovered
-
-* **The Repayment Delinquency Trap:** Borrowers who register more than **2 missed EMIs** within a 12-month window are responsible for the vast majority of defaults, creating over **₹100M+ in toxic capital exposure** across the portfolio. 
-* **The Digital Footprint Anomaly:** Your line chart analysis revealed a critical risk threshold—borrowers presenting a combination of low digital transaction volumes (<25 txns/month) and depleted bank balances exhibit an alarming default probability of **40%+**. 
-* **The CIBIL Scoring Paradox:** While a substantial portion (over 55%) of applicants occupy the "Good" CIBIL score tier (650–749), cross-referencing their liquid bank balances reveals severe paycheck-to-paycheck strain. A high credit score alone is an unreliable indicator if cash reserves are exhausted.
-
----
-
-## ⚡ Actionable Operational Recommendations
-
-1. **Automate the "99% Critical Trap" Blacklist:** Kotak's credit underwriting software should instantly auto-reject applicants exhibiting a combination of `Late_EMI_Count_12M > 2` and a `Low Balance Danger` flag.
-2. **Dynamic Exposure Capping:** Restrict total credit assignment to 50% of standard eligibility limits for individuals in the "Good" CIBIL tier who display deteriorating digital account health.
-3. **Proactive Portfolio Monitoring:** Trigger Early Warning System (EWS) notifications to risk managers the instant an active loan customer's average balance drops below 25% of their declared monthly income.
