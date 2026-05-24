@@ -42,13 +42,13 @@ I asked gemini to write me a python code for generating the data.
 ### 2. SQL Exploratory Data Analysis (EDA)
 First, I didn't just jump straight into Power BI. I started in the database with SQL to check our data quality and run a few queries to see where the defaults were actually happening. This allowed me to prototype my credit risk logic early on before shifting to the visualization stage.
 
-- **1. Traditional Credit Risk Analysis:** Segmented borrowers into CIBIL brackets to calculate the exact NPA (Default) Rate for each tier, helping underwriters                                              pinpoint the baseline credit boundary.
-- **2. The Digital Footprint Test:** Analyzed UPI transaction frequencies (High, Medium, Low) against default trends to verify if high digital transaction usage                                        correlates with safer repayment habits.
-- **3. Missed EMI Delinquency Velocity:** Grouped applicants by the exact number of missed EMIs in the past 12 months to measure exactly how fast default rates                                              spike with each skipped payment.
-- **4. Capital Exposure Tracking:** Grouped borrowers by income tiers (High, Middle, Low Income) to sum up the absolute `Total_Capital_Lost_INR`, identifying                                          exactly where the bank's money faces the highest financial danger.
-- **5. The "Critical Trap" Early Warning:** Isolated the absolute worst-performing loans by combining multiple flags (`Late_EMI_Count_12M > 2` AND a dangerously                                               low bank balance), proving how automated triggers can protect bank capital.
-- **6. Uncovering Hidden Safe Borrowers:** Hunted for a hidden pocket of profitable customers—applicants with lower CIBIL scores (<680) but flawless digital                                                  transaction activity and zero missed EMIs—uncovering an overlooked lending opportunity for the bank.
-
+- **1. Credit Risk Tiering:** Calculated non-performing asset (NPA) rates across standard credit score brackets to establish core underwriting boundaries.
+- **2. Alternative Data Testing:** Evaluated digital payment frequency against credit defaults to verify if active transaction volume signals lower credit risk.
+- **3. Missed Repayment Trends:** Tracked default rates against the exact number of missed EMIs to evaluate how fast credit quality deteriorates.
+- **4. Capital Loss Aggregation:** Mapped absolute financial losses against borrower salary segments to pinpoint where bank capital faces the highest exposure.
+- **5. Early Warning Prototyping:** Filtered for high missed EMIs combined with depleted cash reserves to isolate high-probability default accounts.
+- **6. Credit Inclusion Identification:** Uncovered a viable consumer segment with lower credit scores but pristine repayment histories and active digital footprints.
+  
 ### 3. Power BI Data Import & Transformation
 - Connected Power BI Desktop to the prepared dataset.
 - Handled structural type changes for transaction values and customer IDs.
