@@ -157,6 +157,6 @@ CALCULATE(
   
 - **Missed Repayment Loss Mapping:** Tracking historical performance against capital loss shows that while accounts with 0 missed EMIs represent 279.4M in outstanding balance, customers crossing the threshold of **1 to 2 missed EMIs** are driving massive credit quality deterioration, leaking **130.7M and 65.6M respectively** in total capital lost.
   
-- **The Operational Blacklist Impact:** SQL analysis and dashboard tables successfully isolated the high-risk "99% Critical Trap" segment. By targeting accounts with `Late_EMI_Count_12M > 2` and a `Low Balance Danger` status, the bank can systematically auto-reject high-probability default accounts and protect capital.
+- **The Operational Blacklist Impact:** SQL analysis and dashboard tables successfully isolated the high-risk "99% Critical Trap" segment. By targeting accounts with `Late_EMI_Count_12M > 2` and `average_account_balance` < `Low Balance Threshold` status, the bank can systematically auto-reject high-probability default accounts and protect capital.
 
 
