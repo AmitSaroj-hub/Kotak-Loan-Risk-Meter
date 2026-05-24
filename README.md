@@ -1,8 +1,5 @@
 # Kotak Mahindra Bank: Credit Risk & Loan Portfolio Analytics
 
-## 📊 Live Interactive Dashboard
-> 🔗 **[Click Here to View the Interactive Dashboard]([PASTE YOUR INTERACTIVE LINK HERE])** *(Include this line only if you used Option A to Publish to Web. If not, delete this line!)*
-
 ![Kotak Loan Risk Dashboard](dashboard_screenshot.jpg)
 
 ---
