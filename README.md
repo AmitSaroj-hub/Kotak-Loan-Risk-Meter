@@ -41,15 +41,13 @@ I asked gemini to write me a python code for generating the data.
 
 ### 2. SQL Exploratory Data Analysis (EDA)
 First, I didn't just jump straight into Power BI. I started in the database with SQL to check our data quality and run a few queries to see where the defaults were actually happening. This allowed me to prototype my credit risk logic early on before shifting to the visualization stage.
-
+SQL Queries:[Link](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Business%20Queries.sql)
 - **1. Credit Risk Tiering:** Calculated non-performing asset (NPA) rates across standard credit score brackets to establish core underwriting boundaries.
 - **2. Alternative Data Testing:** Evaluated digital payment frequency against credit defaults to verify if active transaction volume signals lower credit risk.
 - **3. Missed Repayment Trends:** Tracked default rates against the exact number of missed EMIs to evaluate how fast credit quality deteriorates.
 - **4. Capital Loss Aggregation:** Mapped absolute financial losses against borrower salary segments to pinpoint where bank capital faces the highest exposure.
 - **5. Early Warning Prototyping:** Filtered for high missed EMIs combined with depleted cash reserves to isolate high-probability default accounts.
 - **6. Credit Inclusion Identification:** Uncovered a viable consumer segment with lower credit scores but pristine repayment histories and active digital footprints.
-
-SQL Queries:[Link](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Business%20Queries.sql)
   
 ### 3. Power BI Data Import & Transformation
 - Connected Power BI Desktop to the prepared dataset.
