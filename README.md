@@ -50,7 +50,7 @@ CALCULATE(
     Kotak_Loans_Dataset[Default_Status] = 1
 )
 
-### 4. Liquid Asset Cushion Filter (Balance Health Status)
+###// 4. Liquid Asset Cushion Filter (Balance Health Status)
 Balance_Health_Status = 
 IF(
     Kotak_Loans_Dataset[Avg_Account_Balance_INR] < (Kotak_Loans_Dataset[Monthly_Income_INR] * 0.25),
