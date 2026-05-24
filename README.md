@@ -67,21 +67,6 @@ IF(
     )
 )
 
-// E. Risk Metric Calculation (Gross NPA Rate)
-Gross_NPA_Rate = 
-DIVIDE(
-    CALCULATE(COUNT(Kotak_Loans_Dataset[Customer_ID]), Kotak_Loans_Dataset[Default_Status] = 1),
-    COUNT(Kotak_Loans_Dataset[Customer_ID]),
-    0
-)
-
-// F. Financial Exposure (Total Capital Lost)
-Total_Capital_Lost = 
-CALCULATE(
-    SUM(Kotak_Loans_Dataset[Loan_Amount_INR]),
-    Kotak_Loans_Dataset[Default_Status] = 1
-)
-
 
 
 =============================================================================
@@ -99,4 +84,38 @@ Average_Monthly_Income = AVERAGE(Kotak_Loans_Dataset[Monthly_Income_INR])
 
 // D. Average CIBIL Score
 Average_CIBIL_Score = AVERAGE(Kotak_Loans_Dataset[CIBIL_Score])
+
+// E. Risk Metric Calculation (Gross NPA Rate)
+Gross_NPA_Rate = 
+DIVIDE(
+    CALCULATE(COUNT(Kotak_Loans_Dataset[Customer_ID]), Kotak_Loans_Dataset[Default_Status] = 1),
+    COUNT(Kotak_Loans_Dataset[Customer_ID]),
+    0
+)
+
+// F. Financial Exposure (Total Capital Lost)
+Total_Capital_Lost = 
+CALCULATE(
+    SUM(Kotak_Loans_Dataset[Loan_Amount_INR]),
+    Kotak_Loans_Dataset[Default_Status] = 1
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
