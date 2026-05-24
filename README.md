@@ -48,6 +48,8 @@ First, I didn't just jump straight into Power BI. I started in the database with
 - **4. Capital Loss Aggregation:** Mapped absolute financial losses against borrower salary segments to pinpoint where bank capital faces the highest exposure.
 - **5. Early Warning Prototyping:** Filtered for high missed EMIs combined with depleted cash reserves to isolate high-probability default accounts.
 - **6. Credit Inclusion Identification:** Uncovered a viable consumer segment with lower credit scores but pristine repayment histories and active digital footprints.
+
+SQL Queries:[Link](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Business%20Queries.sql)
   
 ### 3. Power BI Data Import & Transformation
 - Connected Power BI Desktop to the prepared dataset.
