@@ -99,23 +99,3 @@ CALCULATE(
     SUM(Kotak_Loans_Dataset[Loan_Amount_INR]),
     Kotak_Loans_Dataset[Default_Status] = 1
 )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
