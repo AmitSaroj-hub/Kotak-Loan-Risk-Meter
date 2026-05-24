@@ -56,6 +56,7 @@ Engineered 6 distinct aggregation metrics to power summary cards and responsive 
 
 ### 4. Technical Implementation (Calculated Columns DAX)
 ```dax
+1. Behavioral Risk Segmentation (CIBIL Brackets):
 CIBIL_Bracket = 
 IF(
     'Kotak_Loans_Dataset'[CIBIL_Score] >= 750, "Excellent (750-900)",
@@ -68,6 +69,7 @@ IF(
     )
 )
 
+2. Liquid Asset Cushion Filter (Balance Health Status):
 Balance_Health_Status = 
 IF(
     Kotak_Loans_Dataset[Avg_Account_Balance_INR] < (Kotak_Loans_Dataset[Monthly_Income_INR] * 0.25),
@@ -75,6 +77,7 @@ IF(
     "Healthy Balance"
 )
 
+3. Income Stratification (Salary Segment):
 Salary_Segment = 
 IF(
     'Kotak_Loans_Dataset'[Monthly_Income_INR] >= 100000, "Tier 1 (High Income)",
@@ -84,6 +87,7 @@ IF(
     )
 )
 
+4. Digital Engagement Tracking (UPI Activity Tier):
 UPI_Activity_Tier = 
 IF(
     'Kotak_Loans_Dataset'[UPI_Txn_Count_30D] >= 50, "High Activity (>50 Txns/Month)",
@@ -96,22 +100,22 @@ IF(
 
 ### 5. Technical Implementation (Dynamic Measures DAX)
 ```dax
-Total_Applicants_Count = COUNT(Kotak_Loans_Dataset[Customer_ID])
+1. Total_Applicants_Count = COUNT(Kotak_Loans_Dataset[Customer_ID])
 
-Total_Portfolio_Volume = SUM(Kotak_Loans_Dataset[Loan_Amount_INR])
+2. Total_Portfolio_Volume = SUM(Kotak_Loans_Dataset[Loan_Amount_INR])
 
-Average_Monthly_Income = AVERAGE(Kotak_Loans_Dataset[Monthly_Income_INR])
+3. Average_Monthly_Income = AVERAGE(Kotak_Loans_Dataset[Monthly_Income_INR])
 
-Average_CIBIL_Score = AVERAGE(Kotak_Loans_Dataset[CIBIL_Score])
+4. Average_CIBIL_Score = AVERAGE(Kotak_Loans_Dataset[CIBIL_Score])
 
-Gross_NPA_Rate = 
+5. Gross_NPA_Rate = 
 DIVIDE(
     CALCULATE(COUNT(Kotak_Loans_Dataset[Customer_ID]), Kotak_Loans_Dataset[Default_Status] = 1),
     COUNT(Kotak_Loans_Dataset[Customer_ID]),
     0
 )
 
-Total_Capital_Lost = 
+6. Total_Capital_Lost = 
 CALCULATE(
     SUM(Kotak_Loans_Dataset[Loan_Amount_INR]),
     Kotak_Loans_Dataset[Default_Status] = 1
