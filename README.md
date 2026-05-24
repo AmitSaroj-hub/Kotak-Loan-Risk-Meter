@@ -92,3 +92,30 @@ IF(
         "Low Activity (<25 Txns/Month)"
     )
 )
+```
+
+### 5. Technical Implementation (Dynamic Measures DAX)
+```dax
+Total_Applicants_Count = COUNT(Kotak_Loans_Dataset[Customer_ID])
+
+Total_Portfolio_Volume = SUM(Kotak_Loans_Dataset[Loan_Amount_INR])
+
+Average_Monthly_Income = AVERAGE(Kotak_Loans_Dataset[Monthly_Income_INR])
+
+Average_CIBIL_Score = AVERAGE(Kotak_Loans_Dataset[CIBIL_Score])
+
+Gross_NPA_Rate = 
+DIVIDE(
+    CALCULATE(COUNT(Kotak_Loans_Dataset[Customer_ID]), Kotak_Loans_Dataset[Default_Status] = 1),
+    COUNT(Kotak_Loans_Dataset[Customer_ID]),
+    0
+)
+
+Total_Capital_Lost = 
+CALCULATE(
+    SUM(Kotak_Loans_Dataset[Loan_Amount_INR]),
+    Kotak_Loans_Dataset[Default_Status] = 1
+)
+
+
+
