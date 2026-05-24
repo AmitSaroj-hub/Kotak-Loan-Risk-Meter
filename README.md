@@ -30,6 +30,8 @@ DIVIDE(
     0
 )
 
+---
+
 ### 2. Behavioral Risk Segmentation (CIBIL Brackets)
 CIBIL_Bracket = 
 IF(
@@ -41,10 +43,14 @@ IF(
     "Poor (<550)")
 ))
 
+---
+
 ### 3. Financial Exposure (Total Capital Lost)
 Total_Capital_Lost = 
 CALCULATE(SUM(Kotak_Loans_Dataset[Loan_Amount_INR]),
 Kotak_Loans_Dataset[Default_Status] = 1)
+
+---
 
 ### 4. Liquid Asset Cushion Filter (Balance Health Status)
 Balance_Health_Status = 
