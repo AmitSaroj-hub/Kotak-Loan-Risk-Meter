@@ -23,8 +23,7 @@ All core calculated logic engineered to handle data transformations and risk met
 
 ---
 
-```dax
-// 1. Risk Metric Calculation (Gross NPA Rate)
+### 1. Risk Metric Calculation (Gross NPA Rate)
 Gross_NPA_Rate = 
 DIVIDE(
     CALCULATE(COUNT(Kotak_Loans_Dataset[Customer_ID]), Kotak_Loans_Dataset[Default_Status] = 1),
@@ -32,7 +31,9 @@ DIVIDE(
     0
 )
 
-// 2. Behavioral Risk Segmentation (CIBIL Brackets)
+---
+
+### 2. Behavioral Risk Segmentation (CIBIL Brackets)
 CIBIL_Bracket = 
 IF(
     'Kotak_Loans_Dataset'[CIBIL_Score] >= 750, "Excellent (750-900)",
@@ -45,14 +46,18 @@ IF(
     )
 )
 
-// 3. Financial Exposure (Total Capital Lost)
+---
+
+### 3. Financial Exposure (Total Capital Lost)
 Total_Capital_Lost = 
 CALCULATE(
     SUM(Kotak_Loans_Dataset[Loan_Amount_INR]),
     Kotak_Loans_Dataset[Default_Status] = 1
 )
 
-// 4. Liquid Asset Cushion Filter (Balance Health Status)
+---
+
+### 4. Liquid Asset Cushion Filter (Balance Health Status)
 Balance_Health_Status = 
 IF(
     Kotak_Loans_Dataset[Avg_Account_Balance_INR] < (Kotak_Loans_Dataset[Monthly_Income_INR] * 0.25),
