@@ -19,10 +19,10 @@ By analyzing historical borrower trends, digital transaction footprints, and pas
 
 ## 🧠 Data Architecture & Analytical Formulae (DAX)
 
-To drive the metrics displayed on the dashboard, the following core calculated logic was engineered:
+All core calculated logic engineered to handle data transformations and risk metrics across the portfolio:
 
-### 1. Risk Metric Calculation (Gross NPA Rate)
 ```dax
+// 1. Risk Metric Calculation (Gross NPA Rate)
 Gross_NPA_Rate = 
 DIVIDE(
     CALCULATE(COUNT(Kotak_Loans_Dataset[Customer_ID]), Kotak_Loans_Dataset[Default_Status] = 1),
@@ -30,34 +30,30 @@ DIVIDE(
     0
 )
 
----
-
-### 2. Behavioral Risk Segmentation (CIBIL Brackets)
+// 2. Behavioral Risk Segmentation (CIBIL Brackets)
 CIBIL_Bracket = 
 IF(
     'Kotak_Loans_Dataset'[CIBIL_Score] >= 750, "Excellent (750-900)",
     IF(
-    'Kotak_Loans_Dataset'[CIBIL_Score] >= 650, "Good (650-749)",
-    IF(
-    'Kotak_Loans_Dataset'[CIBIL_Score] >= 550, "Fair (550-649)",
-    "Poor (<550)")
-))
+        'Kotak_Loans_Dataset'[CIBIL_Score] >= 650, "Good (650-749)",
+        IF(
+            'Kotak_Loans_Dataset'[CIBIL_Score] >= 550, "Fair (550-649)",
+            "Poor (<550)"
+        )
+    )
+)
 
----
-
-### 3. Financial Exposure (Total Capital Lost)
+// 3. Financial Exposure (Total Capital Lost)
 Total_Capital_Lost = 
-CALCULATE(SUM(Kotak_Loans_Dataset[Loan_Amount_INR]),
-Kotak_Loans_Dataset[Default_Status] = 1)
+CALCULATE(
+    SUM(Kotak_Loans_Dataset[Loan_Amount_INR]),
+    Kotak_Loans_Dataset[Default_Status] = 1
+)
 
----
-
-### 4. Liquid Asset Cushion Filter (Balance Health Status)
+// 4. Liquid Asset Cushion Filter (Balance Health Status)
 Balance_Health_Status = 
 IF(
     Kotak_Loans_Dataset[Avg_Account_Balance_INR] < (Kotak_Loans_Dataset[Monthly_Income_INR] * 0.25),
     "Low Balance Danger",
     "Healthy Balance"
 )
-
-### 
