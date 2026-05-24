@@ -68,8 +68,9 @@ IF(
         )
     )
 )
-
+```
 2. Liquid Asset Cushion Filter (Balance Health Status):
+```dax
 Balance_Health_Status = 
 IF(
     Kotak_Loans_Dataset[Avg_Account_Balance_INR] < (Kotak_Loans_Dataset[Monthly_Income_INR] * 0.25),
@@ -77,7 +78,7 @@ IF(
     "Healthy Balance"
 )
 
-3. Income Stratification (Salary Segment):
+4. Income Stratification (Salary Segment):
 Salary_Segment = 
 IF(
     'Kotak_Loans_Dataset'[Monthly_Income_INR] >= 100000, "Tier 1 (High Income)",
@@ -87,7 +88,7 @@ IF(
     )
 )
 
-4. Digital Engagement Tracking (UPI Activity Tier):
+5. Digital Engagement Tracking (UPI Activity Tier):
 UPI_Activity_Tier = 
 IF(
     'Kotak_Loans_Dataset'[UPI_Txn_Count_30D] >= 50, "High Activity (>50 Txns/Month)",
