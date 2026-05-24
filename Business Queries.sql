@@ -1,6 +1,6 @@
 SELECT * FROM Loan_Risk;
 
-###-- 1. The Business Question: What is our absolute credit risk across different traditional tiers?
+-- 1. The Business Question: What is our absolute credit risk across different traditional tiers?
 SELECT
 CASE
     WHEN CIBIL_Score >= 750 THEN 'Excellent (Low Risk)'
