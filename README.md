@@ -167,5 +167,5 @@ CALCULATE(
 - **The Operational Blacklist Impact:** SQL analysis and dashboard tables successfully isolated the high-risk "99% Critical Trap" segment. By targeting accounts with `Late_EMI_Count_12M > 2` and `average_account_balance` < `Low Balance Threshold` status, the bank can systematically auto-reject high-probability default accounts and protect capital.
 
 
-(https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Kotak%20Dashboard%20Screenshot.png)
+[https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Kotak%20Dashboard%20Screenshot.png]
 
