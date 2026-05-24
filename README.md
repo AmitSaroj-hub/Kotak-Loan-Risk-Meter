@@ -40,10 +40,14 @@ so i am not using any Kotak Mahindra Bank's real data and have no intentions to 
 I asked gemini to write me a python code for generating the data.
 
 ### 2. SQL Exploratory Data Analysis (EDA)
-Before building the dashboard in Power BI, I used SQL to explore the raw database and understand borrower behavior:
-- **Finding Risk Patterns:** Queried historical data to see which borrower groups had the highest default rates.
-- **Testing Logic:** Used SQL `CASE WHEN` statements to sketch out credit brackets (like CIBIL groupings) before writing any DAX.
-- **Data Cleanup Check:** Checked for missing values and ensured all transaction amounts and customer records were accurate.
+First, I didn't just jump straight into Power BI. I started in the database with SQL to check our data quality and run a few queries to see where the defaults were actually happening. This allowed me to prototype my credit risk logic early on before shifting to the visualization stage.
+
+- **1. Traditional Credit Risk Analysis:** Segmented borrowers into CIBIL brackets to calculate the exact NPA (Default) Rate for each tier, helping underwriters pinpoint the baseline credit boundary.
+- **2. The Digital Footprint Test:** Analyzed UPI transaction frequencies (High, Medium, Low) against default trends to verify if high digital transaction usage correlates with safer repayment habits.
+- **3. Missed EMI Delinquency Velocity:** Grouped applicants by the exact number of missed EMIs in the past 12 months to measure exactly how fast default rates spike with each skipped payment.
+- **4. Capital Exposure Tracking:** Grouped borrowers by income tiers (High, Middle, Low Income) to sum up the absolute `Total_Capital_Lost_INR`, identifying exactly where the bank's money faces the highest financial danger.
+- **5. The "Critical Trap" Early Warning:** Isolated the absolute worst-performing loans by combining multiple flags (`Late_EMI_Count_12M > 2` AND a dangerously low bank balance), proving how automated triggers can protect bank capital.
+- **6. Uncovering Hidden Safe Borrowers:** Hunted for a hidden pocket of profitable customers—applicants with lower CIBIL scores (<680) but flawless digital transaction activity and zero missed EMIs—uncovering an overlooked lending opportunity for the bank.
 
 ### 3. Power BI Data Import & Transformation
 - Connected Power BI Desktop to the prepared dataset.
