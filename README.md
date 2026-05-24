@@ -34,3 +34,29 @@ DIVIDE(
     COUNT(Kotak_Loans_Dataset[Customer_ID]),
     0
 )
+
+### 2. Behavioral Risk Segmentation (CIBIL Brackets)
+CIBIL_Bracket = 
+IF(
+    'Kotak_Loans_Dataset'[CIBIL_Score] >= 750, "Excellent (750-900)",
+    IF(
+    'Kotak_Loans_Dataset'[CIBIL_Score] >= 650, "Good (650-749)",
+    IF(
+    'Kotak_Loans_Dataset'[CIBIL_Score] >= 550, "Fair (550-649)",
+    "Poor (<550)")
+))
+
+### 3. Financial Exposure (Total Capital Lost)
+Total_Capital_Lost = 
+CALCULATE(SUM(Kotak_Loans_Dataset[Loan_Amount_INR]),
+Kotak_Loans_Dataset[Default_Status] = 1)
+
+### 4. Liquid Asset Cushion Filter (Balance Health Status)
+Balance_Health_Status = 
+IF(
+    Kotak_Loans_Dataset[Avg_Account_Balance_INR] < (Kotak_Loans_Dataset[Monthly_Income_INR] * 0.25),
+    "Low Balance Danger",
+    "Healthy Balance"
+)
+
+### 
