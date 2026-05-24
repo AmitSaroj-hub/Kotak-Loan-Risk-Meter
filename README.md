@@ -6,6 +6,11 @@ This project showcases a dynamic credit risk performance dashboard built using P
 
 ---
 
+##  Dashboard Preview
+[Dashboard](https://github.com/AmitSaroj-hub/Amit-s-Portfolio/blob/main/Dashboard%20Preview.png)
+
+---
+
 ## 📊 Dataset Used
 **Source:** Simulated Fintech Loan Risk Data  
 **Period Covered:** Historical 12-Month Performance Window  
