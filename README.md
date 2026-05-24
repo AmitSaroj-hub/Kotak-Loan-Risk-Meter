@@ -77,8 +77,9 @@ IF(
     "Low Balance Danger",
     "Healthy Balance"
 )
-
+```
 4. Income Stratification (Salary Segment):
+```dax
 Salary_Segment = 
 IF(
     'Kotak_Loans_Dataset'[Monthly_Income_INR] >= 100000, "Tier 1 (High Income)",
@@ -87,8 +88,9 @@ IF(
         "Tier 3 (Mass Market)"
     )
 )
-
-5. Digital Engagement Tracking (UPI Activity Tier):
+```
+6. Digital Engagement Tracking (UPI Activity Tier):
+```dax
 UPI_Activity_Tier = 
 IF(
     'Kotak_Loans_Dataset'[UPI_Txn_Count_30D] >= 50, "High Activity (>50 Txns/Month)",
