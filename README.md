@@ -7,7 +7,7 @@ This project showcases a dynamic credit risk performance dashboard built using P
 ---
 
 ##  Dashboard Preview
-[Dashboard](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Kotak%20Dashboard%20Screenshot.png)
+[Dashboard](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Kotak%20Loan%20Risk%20Dashboard.pdf)
 
 ---
 
