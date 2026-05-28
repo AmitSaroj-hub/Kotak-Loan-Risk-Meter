@@ -9,7 +9,7 @@ This project engineered a dynamic credit risk performance dashboard using Power 
 ## 📊 Dataset Used
 **Source:** Simulated Fintech Loan Risk Data  
 **Period Covered:** Historical 12-Month Performance Window  
-[🔗](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Kotak_Raw_Dataset.csv) Click on the link icon
+[🔗](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Kotak%20Mahindra%20Bank.csv) Click on the link icon
 
 **Key Columns:**
 - `Customer_ID`, `Age`, `Gender`, `CIBIL_Score`, `Monthly_Income_INR`
