@@ -2,12 +2,7 @@
 **Click On Folder Icon To Open Project File.**
 
 ## 🎯 Project Objective
-This project showcases a dynamic credit risk performance dashboard built using Power BI for Kotak Mahindra Bank. The goal was to transform raw fintech borrower transaction histories into an advanced analytics interface to isolate high-risk borrower behaviors, track Non-Performing Assets (NPAs), and protect the bank from toxic capital exposure. The dashboard enables credit risk teams to evaluate applicants, monitor delinquency trends, and activate automated underwriting guardrails.
-
----
-
-##  Dashboard Preview
-[Dashboard](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Kotak%20Loan%20Risk%20Dashboard.pdf)
+This project engineered a dynamic credit risk performance dashboard using Power BI and SQL for a retail lending context. The objective was to transform raw fintech borrower transaction histories into an advanced analytics interface to isolate high-risk borrower behaviors, track Non-Performing Assets (NPAs), and protect bank capital from toxic exposure. The resulting system enables credit risk teams to evaluate applicants, monitor delinquency trends, and establish automated underwriting guardrails.
 
 ---
 
@@ -39,42 +34,51 @@ This project showcases a dynamic credit risk performance dashboard built using P
 
 ## 🛠️ Project Process
 
-### 1. Data Extraction:
-First of all i would like to clarify that this data is a complete sample/mock data as i generated it by python,
-so i am not using any Kotak Mahindra Bank's real data and have no intentions to defame their name by this data.
-I asked gemini to write me a python code for generating the data.
+### 1. Data Extraction & Compliance
+*Disclaimer: This dataset consists entirely of mock/synthetic data generated via Python for academic and portfolio demonstration purposes. It does not utilize real Kotak Mahindra Bank customer data, nor is it intended to represent the actual financial health or operational performance of the institution.*
+
+The base dataset was generated via a custom Python script to simulate realistic retail banking distributions across 10,000 unique borrower records.
 
 ### 2. SQL Exploratory Data Analysis (EDA)
-First, I didn't just jump straight into Power BI. I started in the database with SQL to check our data quality and run a few queries to see where the defaults were actually happening. This allowed me to prototype my credit risk logic early on before shifting to the visualization stage.
+Rather than executing visualizations immediately, initial data exploration was conducted within the database using SQL. This step verified data integrity, evaluated structural quality, and prototyped core underwriting logic prior to frontend modeling.
 
-SQL Queries:[Link](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Business%20Queries.sql)
+SQL Queries: [Link](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Business%20Queries.sql)
 
-- **1. Credit Risk Tiering:** Calculated non-performing asset (NPA) rates across standard credit score brackets to establish core underwriting boundaries.
-- **2. Alternative Data Testing:** Evaluated digital payment frequency against credit defaults to verify if active transaction volume signals lower credit risk.
-- **3. Missed Repayment Trends:** Tracked default rates against the exact number of missed EMIs to evaluate how fast credit quality deteriorates.
-- **4. Capital Loss Aggregation:** Mapped absolute financial losses against borrower salary segments to pinpoint where bank capital faces the highest exposure.
-- **5. Early Warning Prototyping:** Filtered for high missed EMIs combined with depleted cash reserves to isolate high-probability default accounts.
-- **6. Credit Inclusion Identification:** Uncovered a viable consumer segment with lower credit scores but pristine repayment histories and active digital footprints.
+- **Credit Risk Tiering:** Calculated non-performing asset (NPA) rates across standard credit score brackets to establish core underwriting boundaries.
+- **Alternative Data Testing:** Evaluated digital payment frequency against credit defaults to verify if active transaction volume signals lower credit risk.
+- **Missed Repayment Trends:** Tracked default rates against the exact number of missed EMIs to evaluate how fast credit quality deteriorates.
+- **Capital Loss Aggregation:** Mapped absolute financial losses against borrower salary segments to pinpoint where bank capital faces the highest exposure.
+- **Early Warning Prototyping:** Filtered for high missed EMIs combined with depleted cash reserves to isolate high-probability default accounts.
+- **Credit Inclusion Identification:** Uncovered a viable consumer segment with lower credit scores but pristine repayment histories and active digital footprints.
   
 ### 3. Power BI Data Import & Transformation
-- Connected Power BI Desktop to the prepared dataset.
-- Handled structural type changes for transaction values and customer IDs.
+- Connected Power BI Desktop to the prepared SQL/CSV database layer.
+- Conducted data cleaning and handled structural data type configurations for transaction values and unique keys in Power Query.
 
 ### 4. Data Engineering: Calculated Columns
 Derived 4 analytical columns to slice, group, and segment risk behaviors row-by-row:
-- **`CIBIL_Bracket`**: Groups scores into operational risk categories (Excellent, Good, Fair, Poor).
-- **`Balance_Health_Status`**: Flags liquid cash runways dipping below 25% of declared income.
-- **`Salary_Segment`**: Stratifies applicants into economic tiers (Tier 1 High, Tier 2 Middle, Tier 3 Mass Market).
-- **`UPI_Activity_Tier`**: Measures digital transaction intensity to assess active user engagement.
+- **`CIBIL_Bracket`**: Grouped scores into operational risk categories (Excellent, Good, Fair, Poor).
+- **`Balance_Health_Status`**: Flagged liquid cash runways dipping below 25% of declared monthly income.
+- **`Salary_Segment`**: Stratified applicants into economic tiers (Tier 1 High, Tier 2 Middle, Tier 3 Mass Market).
+- **`UPI_Activity_Tier`**: Measured digital transaction intensity to assess active user engagement.
 
 ### 5. Data Engineering: Dynamic Measures
-Engineered 6 distinct aggregation metrics to power summary cards and responsive visuals:
-- **`Total_Applicants_Count`**: Tracks total underwriting applications.
-- **`Total_Portfolio_Volume`**: Evaluates total capital deployed in loans.
-- **`Average_Monthly_Income`**: Assesses incoming cash baselines across data subsets.
-- **`Average_CIBIL_Score`**: Monitors macro credit worthiness movements.
-- **`Gross_NPA_Rate`**: Calculates the core portfolio risk percentage.
-- **`Total_Capital_Lost`**: Quantifies total financial defaults in INR.
+Engineered 6 distinct aggregation metrics using DAX to power summary cards and responsive visuals:
+- **`Total_Applicants_Count`**: Tracked total underwriting applications.
+- **`Total_Portfolio_Volume`**: Evaluated total capital deployed in loans.
+- **`Average_Monthly_Income`**: Assessed incoming cash baselines across data subsets.
+- **`Average_CIBIL_Score`**: Monitored macro credit worthiness movements.
+- **`Gross_NPA_Rate`**: Calculated the core portfolio risk percentage.
+- **`Total_Capital_Lost`**: Quantified total financial defaults in INR.
+
+---
+
+## 💡 Project Insights & Outcomes
+
+- **Size, Scope & Scale:** Successfully developed and deployed an end-to-end risk pipeline for a **₹1.25B+ portfolio** across **10,000 applicants** to analyze asset quality.
+- **Technical Execution:** Investigated raw database patterns using complex SQL aggregations and engineered advanced DAX models to successfully isolate an industry-standard, realistic retail **9.80% Gross NPA Rate**.
+- **Data-Driven Outcomes:** Isolated a critical underwriting vulnerability proving that lower digital payment frequency (<25 UPI txns/month) combined with low liquidity cushions causes segment default risk to spike to **14.20%**, despite a healthy macro portfolio baseline.
+- **Key Learning:** Learned how to synthesize modern alternative transaction footprints with traditional credit scores to build automated early-warning risk filtering systems that actively shield bank capital from volatility.
 
 ### 6. Technical Implementation (Calculated Columns DAX)
 
@@ -165,6 +169,11 @@ CALCULATE(
 - **Missed Repayment Loss Mapping:** Tracking historical performance against capital loss shows that while accounts with 0 missed EMIs represent 279.4M in outstanding balance, customers crossing the threshold of **1 to 2 missed EMIs** are driving massive credit quality deterioration, leaking **130.7M and 65.6M respectively** in total capital lost.
   
 - **The Operational Blacklist Impact:** SQL analysis and dashboard tables successfully isolated the high-risk "99% Critical Trap" segment. By targeting accounts with `Late_EMI_Count_12M > 2` and `average_account_balance` < `Low Balance Threshold` status, the bank can systematically auto-reject high-probability default accounts and protect capital.
+
+---
+
+## 📅 Dashboard Preview
+[Dashboard](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Kotak%20Loan%20Risk%20Dashboard.pdf)
 
 
 
