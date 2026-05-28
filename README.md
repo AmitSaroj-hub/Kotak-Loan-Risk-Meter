@@ -173,7 +173,7 @@ CALCULATE(
 ---
 
 ## 📅 Dashboard Preview
-[Dashboard](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Kotak%20Loan%20Risk%20Dashboard.pdf)
+[Dashboard](https://github.com/AmitSaroj-hub/Kotak-Loan-Risk-Meter/blob/main/Screenshot%202026-05-28%20222842.png)
 
 
 
